@@ -1,0 +1,172 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: Audiowide;
+  src: url(../fonts/Audiowide-Regular.ttf);
+}
+
+.divisor-1 {
+  background-color: #1A2732;
+  width: 30%;
+}
+
+.divisor-2 {
+  background-color: bisque;
+}
+
+.divisor-3 {
+  background-color: #1A2732;
+  width: 70%;
+  margin: auto;
+}
+
+.content {
+  background-color: #EEEEEE;
+  min-height: 100vh;
+}
+
+.navbar .navbar-brand {
+  font-family: Audiowide;
+}
+
+aside {
+  margin-top: 140px;
+}
+
+.colapsador-down {
+  -webkit-transform: translate(-38px, 30px);
+          transform: translate(-38px, 30px);
+  cursor: pointer;
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+}
+
+.colapsador-down-active {
+  -webkit-transform: translate(-38px, 30px) rotate(90deg);
+          transform: translate(-38px, 30px) rotate(90deg);
+}
+
+.listado-jugadoras .eliminar-jugadora {
+  background-color: white;
+  font-size: 15px;
+  padding: 3px 7px;
+  -webkit-transform: translate(-34px, 6px);
+          transform: translate(-34px, 6px);
+}
+
+.listado-jugadoras .eliminar-jugadora:active {
+  -webkit-transform: translate(-34px, 6px) scale(0.8);
+          transform: translate(-34px, 6px) scale(0.8);
+}
+
+.listado-jugadoras .editar-jugadora {
+  background-color: white;
+  font-size: 15px;
+  padding: 3px 5px;
+  -webkit-transform: translate(-34px, 38px);
+          transform: translate(-34px, 38px);
+}
+
+.listado-jugadoras .editar-jugadora:active {
+  -webkit-transform: translate(-34px, 38px) scale(0.8);
+          transform: translate(-34px, 38px) scale(0.8);
+}
+
+.listado-jugadoras .list-group-item {
+  background-color: #1B2632;
+  color: #EEEEEE;
+  border-color: #EEEEEE;
+  line-height: 12px;
+}
+
+.listado-jugadoras .list-group-item .boton-listado-jugadores {
+  background: none !important;
+}
+
+.listado-jugadoras .list-group-item .nombre-apellido {
+  margin-top: -3px;
+}
+
+.listado-jugadoras .list-group-item .nombre {
+  margin-top: -17px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.listado-jugadoras .list-group-item .dni {
+  margin-top: -20px;
+  font-size: 7px;
+  letter-spacing: 2px;
+}
+
+.listado-equipos {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (230px)[auto-fill];
+      grid-template-columns: repeat(auto-fill, 230px);
+  place-content: center;
+}
+
+.listado-equipos .card-body .card {
+  width: 198px;
+}
+
+.listado-equipos .card-body .card h5 {
+  margin-top: -16px;
+}
+
+.listado-equipos .card-body .card .card-text {
+  font-size: 13px;
+}
+
+.listado-equipos .card-body .botones-acciones {
+  top: 18px;
+  right: 9px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+.listado-equipos .card-body .botones-acciones button:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.listado-equipos .card-body .botones-acciones .shadown-hover:hover {
+  -webkit-box-shadow: 2px 2px 9px gray;
+          box-shadow: 2px 2px 9px gray;
+}
+
+.listado-equipos .agregar-equipo:hover button {
+  background-color: #1A2732 !important;
+  color: white;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+  -webkit-box-shadow: 4px 4px 8px gray,-4px -4px 8px gray;
+          box-shadow: 4px 4px 8px gray,-4px -4px 8px gray;
+}
+
+.listado-equipos .agregar-equipo:active button {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+.formulario {
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+}
+
+.formulario-hidden {
+  left: -100% !important;
+  top: -100% !important;
+  opacity: 0;
+}
+/*# sourceMappingURL=custom.css.map */

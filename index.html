@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css\bootstrap.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="https://kit.fontawesome.com/c1facfd534.js" crossorigin="anonymous"></script>
+    <title>Api Futbol</title>
+</head>
+<body>
+    
+    <div class="content">
+        <!--  NAVBAR-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+        <div class="container-fluid  text-light justify-content-start">
+          <a class="navbar-brand  align-items-center p-1" href="#">TORNEO DE FUTBOL FEMENINO 2021</a>
+        </div>
+      </nav>
+
+      <!--  CONTENIDO PRINCIPAL-->
+      <div class="container">
+        <div class="row">
+            <div class="mt-5 p-4 col-12 col-lg-8" >
+                <!--  PANEL EQUIPOS-->
+                <main>
+                    <h1>EQUIPOS TORNEO 2021</h1>
+                    <hr class="divisor-1">
+
+                    <div id="contenedor-equipos" class="shadow listado-equipos card mt-5 pt-5 pb-5 w-100">
+
+      
+                      <!--ACA SE AGREGAN LOS EQUIPOS POR MEDIO DE JAVASCRIPT-->
+
+
+                    </div>
+                </main>
+
+
+                
+
+                  
+            </div>
+            <div class="mt-5 p-2 col-12 col-lg-4">
+                
+
+
+
+
+                <aside>
+
+                    <!--  PANEL JUGADORAS-->
+                  <div id="listado-jugadoras" class="card w-100 text-light bg-dark p-4 my-4 shadow d-none position-relative">
+                    <div ><i id="flecha-colapsador-listadoJugadoras"class="colapsador-down fas fa-chevron-down position-absolute start-100 top-0"></i></div>
+                    <h2 class="h5"><i class="px-2 fas fa-user-friends"></i>LISTADO JUGADORAS</h2>
+                    
+                    
+                    <div id="listado-colapsable" class="listado-jugadoras mt-2">
+                      <hr id="divisor-listado-jugadoras" class="divisor-2">
+                        <ul id="listado-jugadoras-contenedor" class="list-group list-group-flush  mt-4 px-3 fa-2x">
+                            <!-- ACA SE VAN A IR AGREGANDO LAS JUGADORAS-->                            
+                        </ul>
+                    </div>
+                    
+                </div>
+
+
+
+
+                        <!-- FORMULARIO AGREGAR JUGADORA-->
+                        <div class="shadow">
+                            <div class="shadow position-relative">
+                                <i id="flecha-colapsador-formularioJugadora"class="colapsador-down fas fa-chevron-down position-absolute start-100 top-0 text-white"></i>
+                                <h2 class="h5 bg-primary p-4 rounded-top text-light"><i class="fas fa-plus px-2"></i>AGREGAR JUGADORA</h3>
+                            </div>
+                            <form id="formulario-colapsable" class=" border-start border-end bg-white p-4 mb-4" style="margin-top: -10px;">
+                                <div class="form-group">
+                                  <label class="" for="inputNombreJugadora">Nombre</label>
+                                  <input  pattern="^[a-zA-Z]{1,25}$" type="text" class="form-control" id="inputNombreJugadora" aria-describedby="emailHelp" placeholder="Máximo 25 caracteres sin espacios">
+                                </div>
+                                <div class="form-group">
+                                  <label for="inputApellidoJugadora">Apellido</label>
+                                  <input pattern="^[a-zA-Z]{1,25}$" type="text" class="form-control" id="inputApellidoJugadora" placeholder="Máximo 25 caracteres sin espacios">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputDNIJugadora">Número de DNI</label>
+                                    <input pattern="^[1-9]{1}[0-9]{7}$" type="number" class="form-control" id="inputDNIJugadora" placeholder="Ingrese numero sin puntos">
+                                </div>
+                                <select required class="custom-select w-100 p-2 my-3" id="selector-equipo">
+                                    
+                                    <!--ACA SE VAN AGREGANDO LAS OPCIONES DE EQUIPO-->
+                                </select>
+                                <button id="crear-nueva-jugadora" type="submit" class="btn btn-primary">Agregar</button>
+                              </form>
+                        </div>
+                </aside>
+            </div>
+        </div>
+      </div>
+
+
+      <!-- FORMULARIO EDITAR EQUIPO-->
+      <form id="formulario-edicion" class="formulario position-fixed bg-light p-5 formulario-hidden">
+        <h2 class="h3 px-4" >EDITAR EL EQUIPO</h2>
+        <div class="form-group p-4  position-relative">
+          <label for="input-nombreEquipo-Editar">Equipo</label>
+          <input type="text" pattern="^[a-zA-Z][a-zA-Z ]{3,25}$" placeholder="Máximo 25 caracteres" id="input-nombreEquipo-Editar" class=" form-control form-control-lg position-relative" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group p-4  position-relative">
+            <label for="input-colorEquipo-Editar">Color Camiseta</label>
+            <input type="text" id="input-colorEquipo-Editar" placeholder="Máximo 25 caracteres" pattern="^[a-zA-Z][a-zA-Z ]{4,25}$" class="form-control form-control-lg" aria-describedby="emailHelp">
+          </div>
+        <button type="submit" class="btn btn-success m-4">Editar Equipo</button>
+        <button id="cancelar-edicion" class="btn btn-danger m-4">Cancelar</button>
+      </form>
+    
+
+
+
+     <!-- FORMULARIO CREAR EQUIPO-->
+     <form id="formulario-creacion" class="formulario position-fixed bg-light p-5 formulario-hidden">
+        <h2 class="h3 px-4" >CREAR EL EQUIPO</h2>
+        <div class="form-group p-4  position-relative">
+          <label for="input-nombreEquipo-crear">Equipo</label>
+          <input type="text" pattern="^[a-zA-Z ]{1,25}$" placeholder="Máximo 25 caracteres" id="input-nombreEquipo-crear"  required class=" form-control form-control-lg position-relative" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group p-4  position-relative">
+            <label for="input-colorEquipo-crear">Color Camiseta</label>
+            <input type="text" pattern="^[a-zA-Z ]{1,25}$" placeholder="Máximo 25 caracteres" id="input-colorEquipo-crear" required class="form-control form-control-lg" aria-describedby="emailHelp">
+          </div>
+        <button type="submit" class="btn btn-success m-4">Crear Equipo</button>
+        <button id="cancelar-creacion" class="btn btn-danger m-4">Cancelar</button>
+      </form>
+   
+
+
+
+    <!-- FORMULARIO EDITAR JUGADORA-->
+    
+  <form  id="formulario-edicion-jugadora" class="formulario formulario-hidden position-fixed border-start border-end bg-white p-5 mb-4 start-50 top-50" style="margin-top: -10px;">
+    <h2>EDITAR JUGADORA</h2>
+    <div class="form-group">
+      <label class="" for="inputNombreJugadora">Nombre</label>
+      <input  pattern="^[a-zA-Z]{1,25}$" placeholder="Máximo 25 caracteres sin espacios" type="text" class="form-control" id="inputNombreJugadora" aria-describedby="emailHelp" placeholder="Ingrese Nombre">
+    </div>
+    <div class="form-group">
+      <label for="inputApellidoJugadora">Apellido</label>
+      <input pattern="^[a-zA-Z]{1,25}$" placeholder="Máximo 25 caracteres sin espacios" type="text" class="form-control" id="inputApellidoJugadora" placeholder="Ingrese Apellido">
+    </div>
+    <div class="form-group">
+        <label for="inputDNIJugadora">Número de DNI</label>
+        <input pattern="^[1-9]{1}[0-9]{7}$" placeholder="Ingrese número sin puntos" type="number" class="form-control" id="inputDNIJugadora" placeholder="Ingrese Número de DNI">
+    </div>
+    <select required class="custom-select w-100 p-2 my-3" id="selector-equipo-edicion">
+        
+        <!--ACA SE VAN AGREGANDO LAS OPCIONES DE EQUIPO-->
+    </select>
+    <div class="d-flex justify-content-between px-3">
+      <button id="submit-editar-jugadora" type="submit" class="btn btn-success">Editar</button>
+    <button id="cancelar-editar-jugadora" type="submit" class="btn btn-danger">Cancelar</button>
+    </div>
+  </form>
+
+    <script src="js/sweetalert.min.js"></script>
+    <script src="js/appPeticiones.js"></script>
+</body>
+</html>
