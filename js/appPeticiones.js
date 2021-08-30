@@ -310,6 +310,13 @@ const cargaScript = () => {
         equipojugando : equipoJugadora
       }
 
+      swal({
+        title: 'Now loading',
+        allowEscapeKey: false,
+        allowOutsideClick: false,
+        onOpen: () => {
+          swal.showLoading();
+        }});
 
       fetch(RutaServidor + "api/FutbolDBJugadoras/" + idJugadora,{
       method : "PUT",
@@ -513,7 +520,7 @@ const cargaScript = () => {
     //===============CARGO EQUIPOS DE API Y LOS INSERTO EN LA PAGINA===========
     const cargarequipos = ()=>{
       
-      //EVALUO SI YA HAY EQUIPOS CARGADOS Y SI OS HAY, LOS BORRO
+      //EVALUO SI YA HAY EQUIPOS CARGADOS Y SI LOS HAY, LOS BORRO
       const contenedorEquipos = document.getElementById("contenedor-equipos");
       if (contenedorEquipos.hasChildNodes)
       {
@@ -528,8 +535,19 @@ const cargaScript = () => {
             //SELECCIONNO FORMULARIO DE JUGADORAS PARA MAS TARDE AGREGARLE OPCIONES
             //DE EQUIPO
             const menu_equipos = document.getElementById("selector-equipo");
+            menu_equipos.innerHTML=`
+            <select required class="custom-select w-100 p-2 my-3" id="selector-equipo">
+                                    
+              <!--ACA SE VAN AGREGANDO LAS OPCIONES DE EQUIPO-->
+            </select>
+            `
             const menu_equipos_edicion = document.getElementById("selector-equipo-edicion");
-            
+            menu_equipos_edicion.innerHTML=`
+            <select required class="custom-select w-100 p-2 my-3" id="selector-equipo-edicion">
+        
+               <!--ACA SE VAN AGREGANDO LAS OPCIONES DE EQUIPO-->
+            </select>
+            `
 
             //AGREGO EQUIPOS EN EL HTML
             
@@ -557,6 +575,9 @@ const cargaScript = () => {
                 card.innerHTML =htmlAAgregar;
                 contenedorEquipos.appendChild(card)
 
+                //RESETEO MENUS DE SELECCION DE EQUIPO
+                
+
                 //AGREGO OPCION DE EQUIPO AL FORMULARIO DE JUGADORAS
                 const opcionAAgregarCrear = `<option value="${equipo.id}">${equipo.equipo}</option>`;
                 const opcionMenuEquiposCrear = document.createElement("option");
@@ -565,6 +586,7 @@ const cargaScript = () => {
 
                 const opcionAAgregarEditar = `<option value="${equipo.id}">${equipo.equipo}</option>`;
                 const opcionMenuEquiposEditar = document.createElement("option");
+                opcionMenuEquiposEditar.innerHTML="";
                 opcionMenuEquiposEditar.innerHTML=opcionAAgregarEditar;
 
                 
