@@ -1,6 +1,6 @@
 const cargaScript = () => {
   //DIRECCIÓN SERVIDOR DONDE SE MONTA EL BACKEND
-  const RutaServidor = "http://deployprueba.somee.com/";
+  const RutaServidor = "https://pruebadeployapi.azurewebsites.net/";
 
   //===============FUNCIONES DE PETICIONES AJAX========================
   //BORRAR EQUIPO
